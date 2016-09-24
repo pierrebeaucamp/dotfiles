@@ -1,4 +1,4 @@
-# Antigen
+# Bundles
 source $HOME/.antigen.zsh
 antigen bundle command-not-found
 antigen bundle rupa/z
@@ -21,7 +21,7 @@ setopt CORRECT
 setopt COMPLETE_IN_WORD
 setopt IGNORE_EOF
 
-# A better history
+# History settings
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
@@ -48,10 +48,8 @@ auto-ls() {
 }
 chpwd_functions=( auto-ls $chpwd_functions )
 
-# Autosuggestions
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
-
 # Autocompletion
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
 zstyle ':completion:*' insert-tab pending
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 setopt complete_aliases

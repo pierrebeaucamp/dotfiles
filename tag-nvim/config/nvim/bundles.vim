@@ -7,7 +7,6 @@ endfunction
 
 " Bundles
 call plug#begin()
-    Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug']}
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'golang' }
     Plug 'honza/vim-snippets'
     Plug 'idris-hackers/idris-vim', { 'for': 'idris' }

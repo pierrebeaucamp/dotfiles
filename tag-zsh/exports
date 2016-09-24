@@ -6,7 +6,7 @@ export EDITOR="vim"
 
 # Better man pages
 export MANPAGER="less -X"
-export LESS_TERMCAP_md="${yellow}";
+export LESS_TERMCAP_md="$(tput setaf 136)";
 
 # Locales
 export LC_ALL="en_US.UTF-8"
