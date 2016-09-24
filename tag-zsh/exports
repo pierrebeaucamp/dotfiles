@@ -1,0 +1,23 @@
+# Enable Colors
+export TERM="xterm-256color"
+
+# Default editor
+export EDITOR="vim"
+
+# Better man pages
+export MANPAGER="less -X"
+export LESS_TERMCAP_md="${yellow}";
+
+# Locales
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+
+# github.com/trapd00r/LS_COLORS
+eval "$(dircolors -b ~/.dircolors)"
+
+# Masterpasswordapp
+export MP_FULLNAME="Pierre Beaucamp"
+
+# Set GoPath
+export GOPATH="$HOME/Downloads/Code/go"
+export PATH="$GOPATH/bin:$PATH"

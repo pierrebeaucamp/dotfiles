@@ -1,0 +1,64 @@
+# Antigen
+source $HOME/.antigen.zsh
+antigen bundle command-not-found
+antigen bundle rupa/z
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle tarruda/zsh-autosuggestions
+antigen bundle trapd00r/zsh-syntax-highlighting-filetypes
+antigen bundle mafredri/zsh-async
+antigen bundle sindresorhus/pure
+antigen apply
+
+# Generic zsh settings
+setopt NO_BG_NICE
+setopt NO_HUP
+setopt NO_LIST_BEEP
+setopt LOCAL_OPTIONS
+setopt LOCAL_TRAPS
+setopt PROMPT_SUBST
+setopt CORRECT
+setopt COMPLETE_IN_WORD
+setopt IGNORE_EOF
+
+# A better history
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt HIST_VERIFY
+setopt SHARE_HISTORY
+setopt EXTENDED_HISTORY
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_REDUCE_BLANKS
+
+# Key mappings
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+bindkey  "^[[H"   beginning-of-line
+bindkey  "^[[F"   end-of-line
+
+# do 'ls' after 'cd'
+auto-ls() {
+    emulate -L zsh;
+    # no aliases here
+    CLICOLOR_FORCE=1 ls -aFh --color --group-directories-first
+}
+chpwd_functions=( auto-ls $chpwd_functions )
+
+# Autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
+
+# Autocompletion
+zstyle ':completion:*' insert-tab pending
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+setopt complete_aliases
+
+# Load our dotfiles like ~/.bash_prompt, etc...
+for file in ~/.{exports,aliases,functions}; do
+    [ -r "$file"  ] && source "$file"
+done
+unset file
+

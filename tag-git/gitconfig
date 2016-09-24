@@ -1,0 +1,105 @@
+[alias]
+    s = status -s
+    l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+
+    # Show the diff between the latest commit and the current state
+    d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
+
+    # Pull in remote changes for the current repository and all its submodules
+    p = !"git pull; git submodule foreach git pull origin master"
+
+    # Commit all changes
+    ca = !git add -A && git commit -av
+
+    tags = tag -l
+    branches = branch -a
+    remotes = remote -v
+
+[apply]
+    # Detect whitespace errors when applying a patch
+    whitespace = fix
+
+[color]
+    ui = always
+
+[commit]
+    gpgsign = true
+
+[core]
+    # more beautiful diffs
+    pager = diff-highlight | diff-so-fancy | less -r
+
+    # Treat spaces before tabs and all kinds of trailing whitespace as an error
+    whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+
+    # http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
+    precomposeunicode = false
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+    meta = yellow
+    commit = green
+    frag = magenta
+    old = red
+    new = green
+    whitespace = red reverse
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[color "diff-highlight"]
+    oldNormal = red
+    oldHighlight = "red 52"
+    newNormal = green
+    newHighlight = "green 22"
+
+[merge]
+    tool = opendiff
+    log = true
+
+[diff]
+    algorithm = patience
+    # Detect copies as well as renames
+    renames = copies
+
+[diff "bin"]
+    # Use `hexdump` to diff binary files
+    textconv = hexdump -v -C
+
+[mergetool]
+    keepBackup = false
+
+# rewrites
+[url "git@github.com:"]
+    insteadOf = "gh:"
+    insteadOf = "git://github.com"
+    pushInsteadOf = "github:"
+    pushInsteadOf = "git://github.com/"
+    pushInsteadOf = "https://github.com/"
+[url "git@gist.github.com:"]
+    insteadOf = "gst:"
+    pushInsteadOf = "gist:"
+    pushInsteadOf = "git://gist.github.com/"
+    pushInsteadOf = "https://gist.github.com/"
+
+# Any GitHub repo with my username should be checked out r/w by default
+# http://rentzsch.tumblr.com/post/564806957/public-but-hackable-git-submodules
+[url "git@github.com:pierrebeaucamp/"]
+    insteadOf = "git://github.com/pierrebeaucamp/"
+
+[help]
+    autocorrect = 1
+
+#  http://stackoverflow.com/a/23918418/89484
+[push]
+    default = current
+
+[user]
+    email = mail@pierrebeaucamp.com
+    name = Pierre Beaucamp
