@@ -12,6 +12,7 @@ call plug#begin()
     Plug 'idris-hackers/idris-vim', { 'for': 'idris' }
     Plug 'kien/ctrlp.vim'
     Plug 'SirVer/ultisnips'
+    Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-fugitive'
     Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 call plug#end()

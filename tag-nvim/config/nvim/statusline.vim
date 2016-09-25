@@ -1,51 +1,42 @@
 set ruler
 set showcmd
+set statusline=
 
-set statusline=%#identifier#
-set statusline+=[%f]
-set statusline+=%*
-
-set statusline+=%#warningmsg#
-set statusline+=%{&ff!='unix'?'['.&ff.']':''}
-set statusline+=%*
-
-set statusline+=%#warningmsg#
-set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
-set statusline+=%*
-
-set statusline+=%h
-set statusline+=%y
-
-set statusline+=%#identifier#
-set statusline+=%r
-set statusline+=%*
-
-set statusline+=%#warningmsg#
-set statusline+=%m
-set statusline+=%*
-
-set statusline+=%{fugitive#statusline()}
-
+" Various Warnings
 set statusline+=%#error#
+set statusline+=%{&paste?'\ \ [paste]\ ':''}
+set statusline+=%{&ff!='unix'?'\ [&ff]\ ':''}
+set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'\ [&fenc]\ ':''}
 set statusline+=%{StatuslineTabWarning()}
 set statusline+=%*
 
-set statusline+=%{StatuslineTrailingSpaceWarning()}
-set statusline+=%{StatuslineLongLineWarning()}
+" Buffer number
+set statusline+=%#search#
+set statusline+=\ %n
+set statusline+=\ %*
 
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+" File path
+set statusline+=%#statusline#
+set statusline+=\ %f
+set statusline+=\ %*
 
-set statusline+=%#error#
-set statusline+=%{&paste?'[paste]':''}
-set statusline+=%*
+set statusline+=%#statuslinenc#
+set statusline+=%r
+set statusline+=%m
+
+set statusline+=%{fugitive#statusline()}
+
+" set statusline+=%{StatuslineTrailingSpaceWarning()}
+" set statusline+=%{StatuslineLongLineWarning()}
+
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
 set statusline+=%=
-set statusline+=%{StatuslineCurrentHighlight()}\ \
-set statusline+=%c,
-set statusline+=%l/%L
-set statusline+=\ %P
+set statusline+=%{StatuslineCurrentHighlight()}
+set statusline+=\ %y
+set statusline+=\ %l/%L
 
 "return a list containing the lengths of the long lines in this buffer
 function! s:LongLines()
