@@ -6,9 +6,13 @@ filetype plugin indent on
 let mapleader = ","
 set hidden            " hide buffers
 set title             " set window title
-set backup
 set noswapfile
 set lazyredraw
+
+" Persistent undos
+set undofile
+set undolevels=1000
+set undoreload=10000
 
 " Tabs and spaces
 set tabstop=4

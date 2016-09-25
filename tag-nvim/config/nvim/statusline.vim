@@ -23,22 +23,21 @@ set statusline+=\ %*
 set statusline+=%#statuslinenc#
 set statusline+=%r
 set statusline+=%m
-
-set statusline+=%{fugitive#statusline()}
-
-" set statusline+=%{StatuslineTrailingSpaceWarning()}
-" set statusline+=%{StatuslineLongLineWarning()}
+set statusline+=\ %{fugitive#statusline()}
+set statusline+=%{StatuslineTrailingSpaceWarning()}
+set statusline+=%{StatuslineLongLineWarning()}
 
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
 
+" Linenumbers and filetype information (right hand site)
 set statusline+=%=
 set statusline+=%{StatuslineCurrentHighlight()}
 set statusline+=\ %y
 set statusline+=\ %l/%L
 
-"return a list containing the lengths of the long lines in this buffer
+" return a list containing the lengths of the long lines in this buffer
 function! s:LongLines()
     let threshold = (&tw ? &tw : 80)
     let spaces = repeat(" ", &ts)
@@ -46,7 +45,7 @@ function! s:LongLines()
     return filter(line_lens, 'v:val > threshold')
 endfunction
 
-"find the median of the given array of numbers
+" find the median of the given array of numbers
 function! s:Median(nums)
     let nums = sort(a:nums)
     let l = len(nums)
