@@ -3,7 +3,7 @@ set showcmd
 set statusline=
 
 " Various Warnings
-set statusline+=%#error#
+set statusline+=%#incsearch#
 set statusline+=%{&paste?'\ \ [paste]\ ':''}
 set statusline+=%{&ff!='unix'?'\ [&ff]\ ':''}
 set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'\ [&fenc]\ ':''}

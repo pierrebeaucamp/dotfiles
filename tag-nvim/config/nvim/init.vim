@@ -55,6 +55,7 @@ set autochdir
 
 " Colors
 set background=dark
+colorscheme solarized
 highlight clear LineNr
 syntax on
 let &colorcolumn=join(range(81,335),",")
