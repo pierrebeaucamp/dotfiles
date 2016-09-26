@@ -9,7 +9,7 @@ endfunction
 call plug#begin()
     Plug 'altercation/vim-colors-solarized'
     Plug 'airblade/vim-gitgutter'
-    Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'golang' }
+    Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
     Plug 'honza/vim-snippets'
     Plug 'idris-hackers/idris-vim', { 'for': 'idris' }
     Plug 'kien/ctrlp.vim'
