@@ -21,3 +21,6 @@ export MP_FULLNAME="Pierre Beaucamp"
 # Set GoPath
 export GOPATH="$HOME/Downloads/Code/go"
 export PATH="$GOPATH/bin:$PATH"
+
+# Cabal
+export PATH="$HOME/.cabal/bin:$PATH"
