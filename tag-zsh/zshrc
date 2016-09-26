@@ -44,7 +44,7 @@ bindkey  "^[[F"   end-of-line
 auto-ls() {
     emulate -L zsh;
     # no aliases here
-    CLICOLOR_FORCE=1 ls -aFh --color --group-directories-first
+    ls -aFG
 }
 chpwd_functions=( auto-ls $chpwd_functions )
 

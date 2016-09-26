@@ -1,6 +1,6 @@
 [alias]
     s = status -s
-    l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches
 
     # Show the diff between the latest commit and the current state
     d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
@@ -99,6 +99,7 @@
 #  http://stackoverflow.com/a/23918418/89484
 [push]
     default = current
+    followTags = true
 
 [user]
     email = mail@pierrebeaucamp.com

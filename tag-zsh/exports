@@ -13,13 +13,16 @@ export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
 # github.com/trapd00r/LS_COLORS
-eval "$(dircolors -b ~/.dircolors)"
+platform=`uname`
+if [[ "$platform" != "Darwin" ]]; then
+	eval "$(dircolors -b ~/.dircolors)"
+fi
 
 # Masterpasswordapp
 export MP_FULLNAME="Pierre Beaucamp"
 
 # Set GoPath
-export GOPATH="$HOME/Downloads/Code/go"
+export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 
 # Cabal

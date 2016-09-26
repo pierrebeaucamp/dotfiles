@@ -7,7 +7,7 @@ alias ~="cd ~"
 alias -- -="cd -"
 
 # Better LS
-alias ls='CLICOLOR_FORCE=1 ls -aFh --color --group-directories-first'
+alias ls='ls -aFG'
 alias ll="ls -l | awk '{
     k=0;
     for (i=0;i<=8;i++)
@@ -36,3 +36,7 @@ alias copy='rsync -WavP --human-readable --progress'
 # Clear
 alias c='clear'
 alias cls='clear'
+
+# Use nvim
+alias vi='nvim'
+alias vim='nvim'
