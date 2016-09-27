@@ -70,10 +70,6 @@ nnoremap Y y$
 vnoremap < <gv          " pressing < or > doesn't exit virtual mode
 vnoremap > >gv
 set pastetoggle=<F12>
-map <C-J> <C-W>j<C-W>_  " Easier window movement
-map <C-K> <C-W>k<C-W>_
-map <C-L> <C-W>l<C-W>_
-map <C-H> <C-W>h<C-W>_
 map <silent> <C-E> :Lexplore<CR>
 command! -bang Wa wa<bang>
 command! -bang WA wa<bang>
