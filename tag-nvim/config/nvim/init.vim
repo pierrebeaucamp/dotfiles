@@ -69,8 +69,8 @@ let &colorcolumn=join(range(81,335),",")
 nnoremap Y y$
 vnoremap < <gv          " pressing < or > doesn't exit virtual mode
 vnoremap > >gv
-set pastetoggle=<F12>
 map <silent> <C-E> :Lexplore<CR>
+tnoremap <Esc> <C-\><C-n>
 command! -bang Wa wa<bang>
 command! -bang WA wa<bang>
 command! -bang Q q<bang>

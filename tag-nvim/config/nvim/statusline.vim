@@ -27,10 +27,6 @@ set statusline+=\ %{fugitive#statusline()}
 set statusline+=%{StatuslineTrailingSpaceWarning()}
 set statusline+=%{StatuslineLongLineWarning()}
 
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
 " Linenumbers and filetype information (right hand site)
 set statusline+=%=
 set statusline+=%{StatuslineCurrentHighlight()}
