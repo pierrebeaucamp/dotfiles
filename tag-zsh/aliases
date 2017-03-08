@@ -40,3 +40,6 @@ alias cls='clear'
 # Use nvim
 alias vi='nvim'
 alias vim='nvim'
+
+# WSL
+alias open=explorer.exe

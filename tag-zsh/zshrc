@@ -54,9 +54,16 @@ zstyle ':completion:*' insert-tab pending
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 setopt complete_aliases
 
+[[ -s "/home/pierrebeaucamp/.gvm/scripts/gvm" ]] && source "/home/pierrebeaucamp/.gvm/scripts/gvm"
+
+export NVM_DIR="/home/pierrebeaucamp/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
 # Load our dotfiles like ~/.bash_prompt, etc...
-for file in ~/.{exports,aliases,functions}; do
+for file in ~/.{exports,aliases,functions,profile}; do
     [ -r "$file"  ] && source "$file"
 done
 unset file
 
+# Source karma stuff
+#source "/mnt/c/Users/Pierre Beaucamp/Code/go/src/github.com/ilovetravel/karma-devops/scripts/local-env.sh"

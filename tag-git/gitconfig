@@ -23,7 +23,7 @@
     ui = always
 
 [commit]
-    gpgsign = true
+	gpgsign = true
 
 [core]
     # more beautiful diffs
@@ -55,9 +55,9 @@
 
 [color "diff-highlight"]
     oldNormal = red
-    oldHighlight = "red 52"
+    oldHighlight = red reverse
     newNormal = green
-    newHighlight = "green 22"
+    newHighlight = green reverse
 
 [merge]
     tool = opendiff
@@ -104,3 +104,4 @@
 [user]
     email = mail@pierrebeaucamp.com
     name = Pierre Beaucamp
+	signingkey = 64958B9F

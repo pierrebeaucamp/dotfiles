@@ -7,6 +7,8 @@ let mapleader = ","
 set hidden            " hide buffers
 set title             " set window title
 set noswapfile
+set nobackup
+set nowritebackup
 set lazyredraw
 
 " Persistent undos
@@ -23,6 +25,8 @@ set expandtab         " insert spaces instead of tabs
 set nojoinspaces      " Prevents inserting two spaces after joins (j)
 set copyindent
 set formatoptions+=o  " continue comment marker in new lines
+autocmd FileType javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 " Better offsets on scrolling, etc
 set scrolloff=3

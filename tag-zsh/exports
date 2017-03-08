@@ -22,8 +22,11 @@ fi
 export MP_FULLNAME="Pierre Beaucamp"
 
 # Set GoPath
-export GOPATH="$HOME/go"
-export PATH="$GOPATH/bin:$PATH"
+export GOPATH="/mnt/c/Users/Pierre Beaucamp/Code/go"
+export GOBIN="$GOROOT/bin"
 
 # Cabal
 export PATH="$HOME/.cabal/bin:$PATH"
+
+# Docker
+export DOCKER_HOST=tcp://127.0.0.1:2375
