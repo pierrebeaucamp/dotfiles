@@ -23,6 +23,9 @@ call plug#begin()
     " Angular
     Plug 'matthewsimo/angular-vim-snippets'
     Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
+
+    " HTML
+    Plug 'docunext/closetag.vim', {'for': ['html', 'xml']}
 call plug#end()
 
 " Vim-go
