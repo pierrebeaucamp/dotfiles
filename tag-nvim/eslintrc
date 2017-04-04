@@ -1,3 +1,17 @@
 {
-    "extends": "airbnb-base/legacy",
+    "extends": "google",
+    "env": {
+        "browser": true,
+    },
+    "rules": {
+        "arrow-parens": 0,
+        "contructor-super": 0,
+        "no-new-symbol": 0,
+        "no-this-before-super": 0,
+        "no-var": 0,
+        "prefer-rest-params": 0,
+        "prefer-spread": 0,
+        "rest-spread-spacing": 0,
+        "yield-star-spacing": 0,
+    }
 }
