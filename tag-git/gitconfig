@@ -14,6 +14,7 @@
     tags = tag -l
     branches = branch -a
     remotes = remote -v
+    prune = fetch --prune
 
 [apply]
     # Detect whitespace errors when applying a patch
@@ -24,6 +25,12 @@
 
 [commit]
 	gpgsign = true
+
+[status]
+    showUntrackedFiles = all
+
+[transfer]
+    fsckobjects = true
 
 [core]
     # more beautiful diffs
@@ -62,6 +69,7 @@
 [merge]
     tool = opendiff
     log = true
+    conflictstyle = diff3
 
 [diff]
     algorithm = patience
@@ -82,6 +90,7 @@
     pushInsteadOf = "github:"
     pushInsteadOf = "git://github.com/"
     pushInsteadOf = "https://github.com/"
+
 [url "git@gist.github.com:"]
     insteadOf = "gst:"
     pushInsteadOf = "gist:"
