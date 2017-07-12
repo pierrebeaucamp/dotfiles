@@ -2,7 +2,7 @@
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias -="cd -"
+# alias -="cd -"
 
 # Better LS
 alias ls='ls -aFG'

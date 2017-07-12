@@ -1,3 +1,8 @@
+" Better shell compadibility for plugins:
+if &shell =~# 'fish$'
+    set shell=sh
+endif
+
 silent source ~/.config/nvim/bundles.vim
 silent source ~/.config/nvim/statusline.vim
 
@@ -71,9 +76,6 @@ let &colorcolumn=join(range(81,335),",")
 
 " Key mappings
 nnoremap Y y$
-vnoremap < <gv          " pressing < or > doesn't exit virtual mode
-vnoremap > >gv
-map <silent> <C-E> :Lexplore<CR>
 tnoremap <Esc> <C-\><C-n>
 command! -bang Wa wa<bang>
 command! -bang WA wa<bang>
@@ -85,8 +87,15 @@ command! -bang -nargs=* -complete=file W w<bang> <args>
 command! -bang -nargs=* -complete=file Wq wq<bang> <args>
 command! -bang -nargs=* -complete=file WQ wq<bang> <args>
 
-" Find next merge conflict
-map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
+" pressing < or > doesn't exit virtual mode
+vnoremap < <gv
+vnoremap > >gv
+
+" open FZF using ctrl-p
+nnoremap <c-p> :FZF<cr>
+
+" open netrw using ctrl-e
+map <silent> <C-E> :Lexplore<CR>
 
 " For when you forgot to sudo
 cmap w!! w !sudo tee % >/dev/null

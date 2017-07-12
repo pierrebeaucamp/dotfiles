@@ -1,18 +1,21 @@
 " Bundles
 call plug#begin()
-    " General
+    " Git in the gutter
     Plug 'airblade/vim-gitgutter'
-    Plug 'honza/vim-snippets'
-    Plug 'kien/ctrlp.vim'
     Plug 'neomake/neomake'
-    Plug 'SirVer/ultisnips'
     Plug 'tpope/vim-commentary'
-    Plug 'tpope/vim-fugitive'
-    Plug 'vim-scripts/AutoClose'
     Plug 'roxma/nvim-completion-manager'
-
-    " Theme
+    Plug 'christoomey/vim-tmux-navigator'
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'editorconfig/editorconfig-vim'
     Plug 'altercation/vim-colors-solarized'
+    Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+    " Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+    " Plug 'Shougo/echodoc.vim'
+
+    " Snippets
+    " Plug 'honza/vim-snippets'
+    Plug 'SirVer/ultisnips'
 
     " Golang
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
@@ -20,11 +23,12 @@ call plug#begin()
     " Idris
     Plug 'idris-hackers/idris-vim', { 'for': 'idris' }
 
-    " Angular
-    Plug 'matthewsimo/angular-vim-snippets'
+    " TypeScript
+    Plug 'leafgarland/typescript-vim'
     Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 
-    " HTML
+    " Autoclose brackets
+    Plug 'vim-scripts/AutoClose'
     Plug 'docunext/closetag.vim', {'for': ['html', 'xml']}
 call plug#end()
 
@@ -43,27 +47,28 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <buffer> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 
 " Ultisnip
-let g:UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
-let g:UltiSnipsJumpForwardTrigger = "<Plug>(ultisnips_expand)"
-let g:UltiSnipsJumpBackwardTrigger = "<Plug>(ultisnips_backward)"
-let g:UltiSnipsListSnippets = "<Plug>(ultisnips_list)"
+let g:UltiSnipsExpandTrigger            = "<Plug>(ultisnips_expand)"
+let g:UltiSnipsJumpForwardTrigger       = "<Plug>(ultisnips_expand)"
+let g:UltiSnipsJumpBackwardTrigger      = "<Plug>(ultisnips_backward)"
+let g:UltiSnipsListSnippets             = "<Plug>(ultisnips_list)"
 let g:UltiSnipsRemoveSelectModeMappings = 0
-
 vnoremap <expr> <Plug>(ultisnip_expand_or_jump_result) g:ulti_expand_or_jump_res?'':"\<Tab>"
 inoremap <expr> <Plug>(ultisnip_expand_or_jump_result) g:ulti_expand_or_jump_res?'':"\<Tab>"
 imap <silent> <expr> <Tab> (pumvisible() ? "\<C-n>" : "\<C-r>=UltiSnips#ExpandSnippetOrJump()\<cr>\<Plug>(ultisnip_expand_or_jump_result)")
 xmap <Tab> <Plug>(ultisnips_expand)
 smap <Tab> <Plug>(ultisnips_expand)
-
 vnoremap <expr> <Plug>(ultisnips_backwards_result) g:ulti_jump_backwards_res?'':"\<S-Tab>"
 inoremap <expr> <Plug>(ultisnips_backwards_result) g:ulti_jump_backwards_res?'':"\<S-Tab>"
 imap <silent> <expr> <S-Tab> (pumvisible() ? "\<C-p>" : "\<C-r>=UltiSnips#JumpBackwards()\<cr>\<Plug>(ultisnips_backwards_result)")
 xmap <S-Tab> <Plug>(ultisnips_backward)
 smap <S-Tab> <Plug>(ultisnips_backward)
-
-" optional mapping provided by NCM. If you press `<c-u>` and nothing has been
-" typed, it will popup a list of snippets available"
 inoremap <silent> <c-u> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
+
+" Editorconfig - faster startup
+let g:EditorConfig_core_mode = 'python_external'
+
+" typescript-vim
+let g:typescript_compiler_binary = ''
 
 " Neomake
 let g:neomake_javascript_eslint_maker = {
@@ -72,9 +77,12 @@ let g:neomake_javascript_eslint_maker = {
     \ '%W%f: line %l\, col %c\, Warning - %m'
     \ }
 
+let g:neomake_typescript_tslint_maker = {
+    \ 'args': ['%:p', '--format verbose', '--fix'],
+    \ 'errorformat': '%E%f:[%l, %c]: %m'
+    \ }
+
 function! s:Neomake_callback(options)
-    if &ft == 'javascript'
-        edit
-    endif
+    edit
 endfunction
 autocmd BufWritePost * call neomake#Make(1, [], function('s:Neomake_callback'))

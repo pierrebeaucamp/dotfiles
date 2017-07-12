@@ -23,8 +23,7 @@ set statusline+=\ %*
 set statusline+=%#statuslinenc#
 set statusline+=%r
 set statusline+=%m
-set statusline+=\ %{fugitive#statusline()}
-set statusline+=%{StatuslineTrailingSpaceWarning()}
+set statusline+=\ %{StatuslineTrailingSpaceWarning()}
 set statusline+=%{StatuslineLongLineWarning()}
 
 " Linenumbers and filetype information (right hand site)

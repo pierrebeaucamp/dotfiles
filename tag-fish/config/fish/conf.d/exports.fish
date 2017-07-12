@@ -30,5 +30,12 @@ set -x DOCKER_HOST tcp://127.0.0.1:2375
 set -x N_PREFIX $HOME/n
 set -x PATH $N_PREFIX/bin $PATH
 
+# Vagrant
+set -x VAGRANT_WSL_ENABLE_WINDOWS_ACCESS 1
+set -x VAGRNAT_DEFAULT_PROVIDER docker
+
+# Nix
+bass source "/home/pierrebeaucamp/.nix-profile/etc/profile.d/nix.sh"
+
 # Karma
 bass source "/mnt/c/Users/Pierre\ Beaucamp/Code/go/src/github.com/ilovetravel/karma-devops/scripts/local-env.sh"
