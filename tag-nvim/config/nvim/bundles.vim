@@ -7,14 +7,14 @@ call plug#begin()
     Plug 'roxma/nvim-completion-manager'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'editorconfig/editorconfig-vim'
     Plug 'altercation/vim-colors-solarized'
     Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-    " Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
-    " Plug 'Shougo/echodoc.vim'
+    Plug 'junegunn/rainbow_parentheses.vim'
+    Plug 'jpalardy/vim-slime'
+    Plug 'vim-scripts/AutoClose'
+    Plug 'docunext/closetag.vim', {'for': ['html', 'xml']}
 
     " Snippets
-    " Plug 'honza/vim-snippets'
     Plug 'SirVer/ultisnips'
 
     " Golang
@@ -23,13 +23,24 @@ call plug#begin()
     " Idris
     Plug 'idris-hackers/idris-vim', { 'for': 'idris' }
 
+    " Coq
+    Plug 'tounaishouta/coq.vim'
+
     " TypeScript
     Plug 'leafgarland/typescript-vim'
     Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 
-    " Autoclose brackets
-    Plug 'vim-scripts/AutoClose'
-    Plug 'docunext/closetag.vim', {'for': ['html', 'xml']}
+    " Nix
+    Plug 'LnL7/vim-nix'
+
+    " Racket
+    Plug 'wlangstroth/vim-racket'
+
+    " Haskell
+    Plug 'dag/vim2hs'
+
+    " Latex
+    Plug 'lervag/vimtex'
 call plug#end()
 
 " Vim-go
@@ -64,11 +75,9 @@ xmap <S-Tab> <Plug>(ultisnips_backward)
 smap <S-Tab> <Plug>(ultisnips_backward)
 inoremap <silent> <c-u> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
 
-" Editorconfig - faster startup
-let g:EditorConfig_core_mode = 'python_external'
-
-" typescript-vim
-let g:typescript_compiler_binary = ''
+" Racket (Slime)
+let g:slime_target = "tmux"
+autocmd VimEnter * RainbowParentheses
 
 " Neomake
 let g:neomake_javascript_eslint_maker = {

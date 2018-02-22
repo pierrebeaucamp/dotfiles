@@ -17,12 +17,12 @@
 # To update it, re-run the above command.
 #
 : ${VERBOSE:=0}
-: ${CP:=/bin/cp}
-: ${LN:=/bin/ln}
-: ${MKDIR:=/bin/mkdir}
-: ${RM:=/bin/rm}
-: ${DIRNAME:=/usr/bin/dirname}
-: ${XARGS:=/usr/bin/xargs}
+: ${CP:=cp}
+: ${LN:=ln}
+: ${MKDIR:=mkdir}
+: ${RM:=rm}
+: ${DIRNAME:=dirname}
+: ${XARGS:=xargs}
 verbose() {
   if [ "$VERBOSE" -gt 0 ]; then
     echo "$@"

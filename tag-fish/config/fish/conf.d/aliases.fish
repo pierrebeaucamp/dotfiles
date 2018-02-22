@@ -24,9 +24,9 @@ alias egrep='egrep --color=auto'
 alias sudo='sudo '
 
 # Package Manager
-alias apti='sudo apt-get install --no-install-recommends'
-alias aptr='sudo apt-get autoremove --purge'
-alias aptu='sudo apt-get update; and sudo apt-get -y upgrade'
+#alias apti='sudo apt-get install --no-install-recommends'
+#alias aptr='sudo apt-get autoremove --purge'
+#alias aptu='sudo apt-get update; and sudo apt-get -y upgrade'
 
 # A better copy
 alias copy='rsync -WavP --human-readable --progress'
@@ -36,8 +36,13 @@ alias c='clear'
 alias cls='clear'
 
 # Use nvim
+alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 
 # WSL
-alias open=explorer.exe
+#alias open=explorer.exe
+
+# Nix
+alias nix-shell='nix-shell --command fish'
+

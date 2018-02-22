@@ -15,6 +15,7 @@ set noswapfile
 set nobackup
 set nowritebackup
 set lazyredraw
+set nofoldenable
 
 " Persistent undos
 set undofile
@@ -22,16 +23,15 @@ set undolevels=1000
 set undoreload=10000
 
 " Tabs and spaces
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set shiftround        " round < and > to a multiple of shiftwidth
 set expandtab         " insert spaces instead of tabs
 set nojoinspaces      " Prevents inserting two spaces after joins (j)
 set copyindent
 set formatoptions+=o  " continue comment marker in new lines
-autocmd FileType javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2
-autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType go setlocal tabstop=8 softtabstop=8 shiftwidth=8
 
 " Better offsets on scrolling, etc
 set scrolloff=3
