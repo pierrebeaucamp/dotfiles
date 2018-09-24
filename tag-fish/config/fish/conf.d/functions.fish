@@ -29,3 +29,7 @@ function gi
     curl -L -s https://www.gitignore.io/api/$argv
 end
 
+# CSV Viewer
+function csv
+    column -s, -t < $argv | less -#2 -N -S
+end

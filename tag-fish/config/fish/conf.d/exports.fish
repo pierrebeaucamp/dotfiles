@@ -16,6 +16,10 @@ set -x LANG "en_US.UTF-8"
 set -x MPW_FULLNAME "Pierre Beaucamp"
 set -x MPW_FORMAT "none"
 
+# Some Nix LOCALE fixes
+# See https://github.com/NixOS/nixpkgs/issues/8398#issuecomment-186832814
+set -e LOCALE_ARCHIVE
+
 # Golang
 # bass source /home/pierrebeaucamp/.gvm/scripts/gvm
 # set -x GOPATH "/mnt/c/Users/Pierre Beaucamp/Code/go"

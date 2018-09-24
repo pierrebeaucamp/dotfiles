@@ -41,6 +41,13 @@ call plug#begin()
 
     " Latex
     Plug 'lervag/vimtex'
+
+    " F-Star
+    Plug 'FStarLang/VimFStar', {'for': 'fstar'}
+
+    " Docbook
+    Plug 'jhradilek/vim-docbk'
+    Plug 'jhradilek/vim-snippets'
 call plug#end()
 
 " Vim-go
