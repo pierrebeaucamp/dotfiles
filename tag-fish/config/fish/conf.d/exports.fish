@@ -1,6 +1,3 @@
-# Enable Colors
-set -x TERM "screen-256color"
-
 # Default editor
 set -x EDITOR "nvim"
 
@@ -20,27 +17,10 @@ set -x MPW_FORMAT "none"
 # See https://github.com/NixOS/nixpkgs/issues/8398#issuecomment-186832814
 set -e LOCALE_ARCHIVE
 
-# Golang
-# bass source /home/pierrebeaucamp/.gvm/scripts/gvm
-# set -x GOPATH "/mnt/c/Users/Pierre Beaucamp/Code/go"
-# set -x GOBIN "$GOROOT/bin"
+# Hledger
+set -x LEDGER_FILE "/home/pierrebeaucamp/Nextcloud/Finances/2019.journal"
 
-# Cabal
-# set -x PATH $HOME/.cabal/bin $PATH
+# Wayland
+set -x XDG_SESSION_TYPE "wayland"
+set -x GDK_BACKEND "wayland"
 
-# Docker
-# set -x DOCKER_HOST tcp://127.0.0.1:2375
-
-# Node
-# set -x N_PREFIX $HOME/n
-# set -x PATH $N_PREFIX/bin $PATH
-
-# Vagrant
-# set -x VAGRANT_WSL_ENABLE_WINDOWS_ACCESS 1
-# set -x VAGRNAT_DEFAULT_PROVIDER docker
-
-# Nix
-# bass source "/home/pierrebeaucamp/.nix-profile/etc/profile.d/nix.sh"
-
-# Karma
-# bass source "/mnt/c/Users/Pierre\ Beaucamp/Code/go/src/github.com/ilovetravel/karma-devops/scripts/local-env.sh"

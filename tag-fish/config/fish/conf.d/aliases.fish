@@ -13,3 +13,8 @@ alias vim='nvim'
 # Nix
 alias nix-shell='nix-shell --command fish'
 
+# APL
+alias apl='apl --noColor'
+
+# Images
+alias icat="kitty +kitten icat"

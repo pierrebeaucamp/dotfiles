@@ -3,9 +3,6 @@ if &shell =~# 'fish$'
     set shell=sh
 endif
 
-silent source ~/.config/nvim/bundles.vim
-silent source ~/.config/nvim/statusline.vim
-
 " General
 filetype plugin indent on
 let mapleader = ","
@@ -38,7 +35,6 @@ set scrolloff=3
 set display+=lastline
 set virtualedit=onemore
 set nowrap
-autocmd FileType markdown setlocal wrap
 
 " Search
 set ignorecase
@@ -61,6 +57,9 @@ autocmd FocusGained * set relativenumber
 autocmd InsertEnter * set norelativenumber
 autocmd InsertLeave * set relativenumber
 
+silent source ~/.config/nvim/bundles.vim
+silent source ~/.config/nvim/statusline.vim
+
 " Better netrw
 let g:netrw_altv = 1
 let g:netrw_browse_split = 4
@@ -68,10 +67,10 @@ let g:netrw_liststyle = 3
 set autochdir
 
 " Colors
-set background=dark
-colorscheme solarized
+colorscheme vacme
 highlight clear LineNr
 syntax on
+hi! ColorColumn ctermbg=230
 let &colorcolumn=join(range(81,335),",")
 
 " Key mappings
@@ -119,3 +118,6 @@ function! StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 autocmd BufWritePre <buffer> call StripTrailingWhitespaces()
+
+" I don't use Perl
+au FileType perl set filetype=prolog

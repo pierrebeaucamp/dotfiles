@@ -24,7 +24,7 @@
     ui = always
 
 [commit]
-    #gpgsign = true
+    gpgsign = true
 
 [status]
     showUntrackedFiles = all
@@ -113,6 +113,7 @@
 [user]
     email = mail@pierrebeaucamp.com
     name = Pierre Beaucamp
-	signingkey = 64958B9F
+    signingkey = 64958B9F
+
 [fetch]
-	fsckobjects = true
+    fsckobjects = true

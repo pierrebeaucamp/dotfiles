@@ -1,21 +1,19 @@
 " Bundles
 call plug#begin()
-    " Git in the gutter
     Plug 'airblade/vim-gitgutter'
     Plug 'neomake/neomake'
     Plug 'tpope/vim-commentary'
-    Plug 'roxma/nvim-completion-manager'
+    " Plug 'roxma/nvim-completion-manager'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'altercation/vim-colors-solarized'
+    Plug 'olivertaylor/vacme'
     Plug 'Shougo/vimproc.vim', {'do' : 'make'}
     Plug 'junegunn/rainbow_parentheses.vim'
     Plug 'jpalardy/vim-slime'
     Plug 'vim-scripts/AutoClose'
     Plug 'docunext/closetag.vim', {'for': ['html', 'xml']}
-
-    " Snippets
     Plug 'SirVer/ultisnips'
+    Plug 'reedes/vim-pencil'
 
     " Golang
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
@@ -48,6 +46,15 @@ call plug#begin()
     " Docbook
     Plug 'jhradilek/vim-docbk'
     Plug 'jhradilek/vim-snippets'
+
+    " Q/KDB
+    Plug 'katusk/vim-qkdb-syntax'
+
+    " APL
+    Plug 'https://gitlab.com/n9n/vim-apl.git'
+
+    " Prolog
+    Plug 'adimit/prolog.vim'
 call plug#end()
 
 " Vim-go
@@ -85,6 +92,10 @@ inoremap <silent> <c-u> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ult
 " Racket (Slime)
 let g:slime_target = "tmux"
 autocmd VimEnter * RainbowParentheses
+
+" Pencil
+let g:pencil#textwidth = 80
+autocmd FileType markdown,mkd,text call pencil#init({'wrap': 'hard'})
 
 " Neomake
 let g:neomake_javascript_eslint_maker = {
